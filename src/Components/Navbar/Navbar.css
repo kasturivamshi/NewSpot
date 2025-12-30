@@ -1,0 +1,61 @@
+
+.main-nav{
+  position: sticky;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    background: white;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.3rem 3rem;
+    border-bottom: solid 3px whitesmoke;
+  
+}
+
+nav .logo{
+    width: 12rem;
+    margin-bottom: 0.3rem;
+}
+
+nav .search-bar{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: whitesmoke;
+    width: 50%;
+    border-radius: 2rem;
+}
+
+nav .search-bar i{
+    font-size: 1.5rem;
+    color:rgb(111, 108, 108) ;
+    margin: 0 0.5rem 0 1rem;
+}
+
+nav .search-bar input{
+    height: 3rem;
+    width: 100%;
+    border: 1px solid rgb(226, 217, 217);
+    border-radius: 2rem;
+    padding-left: 1rem;
+    border: none;
+    background:whitesmoke;
+}
+
+nav .search-bar input::placeholder{
+    font-size: 1rem;
+    color:rgb(111, 108, 108) ;
+    border: none;
+}
+
+nav h5{
+    background: whitesmoke;
+    color: blue;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+}
+
