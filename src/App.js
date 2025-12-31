@@ -7,24 +7,17 @@ import {
   Route,
   Routes
 } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 export default function App() {
-
-  let pageSize = 10;
-
+  let pageSize = 9
   return (
     <>
       <Router>
         <Navbar />
         <Filters />
         <Routes>
-          {/* <Route exact path="/general" > <News pageSize={pageSize} category="general" /> </Route>
-          <Route exact path="/business"> <News pageSize={pageSize} category="business" /> </Route>
-          <Route exact path="/entertainment"> <News pageSize={pageSize} category="entertainment" /> </Route>
-          <Route exact path="/health"> <News pageSize={pageSize} category="health" /> </Route>
-          <Route exact path="/science"> <News pageSize={pageSize} category="science" /> </Route>
-          <Route exact path="/sports"> <News pageSize={pageSize} category="sports" /> </Route>
-          <Route exact path="/technology"> <News pageSize={pageSize} category="technology" /> </Route> */}
+          <Route exact path="/" element={<News pageSize={pageSize} key="general" category="general" />} />
           <Route exact path="/general" element={<News pageSize={pageSize} key="general" category="general" />} />
           <Route exact path="/business" element={<News pageSize={pageSize} key="business" category="business" />} />
           <Route exact path="/entertainment" element={<News pageSize={pageSize} key="entertainment" category="entertainment" />} />
@@ -36,4 +29,15 @@ export default function App() {
       </Router>
     </>
   )
+};
+
+News.defaultProps = {
+  category: "general",
+  pageSize: 9
+};
+
+
+News.propTypes = {
+  category: PropTypes.string,
+  pageSize: PropTypes.number
 };
