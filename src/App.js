@@ -2,6 +2,8 @@ import React from 'react'
 import Navbar from './Components/Navbar/Navbar'
 import Filters from './Components/Filters/Filters'
 import News from './Components/News/News'
+import Footer from './Components/Footer/Footer'
+
 import {
   BrowserRouter as Router,
   Route,
@@ -26,6 +28,7 @@ export default function App() {
           <Route exact path="/sports" element={<News pageSize={pageSize} key="sports" category="sports" /> } />
           <Route exact path="/technology" element={<News pageSize={pageSize} key="technology" category="technology" />} />
         </Routes>
+        <Footer />
       </Router>
     </>
   )
