@@ -10,28 +10,28 @@ export default function News(props) {
   const [totalResults, setTotalResults] = useState(0);
   const [page, setPage] = useState(1);
 
-  let newsAPI_APIkey = process.env.NEWS_API_KEY;
+  let newsAPI_APIkey = process.env.REACT_APP_API;
 
   useEffect(() => {
     const fetchNews = async () => {
-      let url = `https://newsapi.org/v2/top-headlines?country=us&category=${props.category}&apiKey=${newsAPI_APIkey}&page=${page}`;
+      let url = `https://newsapi.org/v2/top-headlines?country=us&category=${props.category}&apiKey=${newsAPI_APIkey}&page=${page}&pageSize=15`;
       setLoading(true);
       const response = await fetch(url);
       const news = await response.json();
       setArticles(news.articles);
-      setLoading(false);
       setTotalResults(news.totalResults);
+      setLoading(false);
     };
     fetchNews();
   }, [props.category]);
 
   const fetchMoreData = async () => {
     setPage(page + 1);
-    let url = `https://newsapi.org/v2/top-headlines?country=us&category=${props.category}&apiKey=${newsAPI_APIkey}&page=${page}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=us&category=${props.category}&apiKey=${newsAPI_APIkey}&page=${page}&pageSize=15`;
     setLoading(true);
     const response = await fetch(url);
     const news = await response.json();
-    setArticles(articles.concat(news.articles));
+    setArticles((prev) => prev.concat(news.articles));
     setLoading(false);
     setTotalResults(news.totalResults);
   };
@@ -61,7 +61,6 @@ export default function News(props) {
                   <NewsItem key={article.url} data={article} />
                 ))}
             </div>
-
           </InfiniteScroll>
         </div>
       </div>
